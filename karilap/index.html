@@ -1,0 +1,41 @@
+<html>
+	<head>
+		<style>
+            body {
+                overflow: hidden;
+            }
+        
+			* {
+				margin: 0;
+				padding: 0;
+			}
+            
+            #angel {
+                position: absolute;
+                border: 1px solid white;
+            }
+            
+            #cont {
+                position: absolute;
+                width: 100%;
+                height: 50px;
+                top: 10px;
+                left: 0;
+                color: red;
+                font-size: 30px;
+                font-family: Arial;
+            }
+		</style>
+		<script src="main.js" defer="defer"></script>
+	</head>
+	<body>
+        
+		<canvas id="canvas" style="position: fixed; left: 0; right: 0">
+		</canvas>
+        <img height="100px" width="100px" src="angel.png" id="angel"></img><div id="cont">
+            <center>
+                <span id="score1">0</span><span> - </span><span id="score2">0</span>
+            </center>
+         </div>
+	</body>
+</html>
