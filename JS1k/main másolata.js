@@ -1,10 +1,3 @@
-
-a = document.getElementById("canvas");
-b = document.body;
-c = a.getContext("2d");
-d = document;
-
-
 f = r => {
     for (s = (a, b = a) => ({ x: a, y: b }), 
            M = [...(k = Array(33))].map((r, y) => [...(k = Array(33))].map((r, x) => x % 2 & y % 2)), 
@@ -18,9 +11,9 @@ f = r => {
            g = p => (M[p.y | 0] || 0)[p.x | 0] | 0, 
            S = (a, b) => M[a.y | 0][a.x | 0] = b; 
            Q&&S(p,2);) {
-        if (!(A = h(p))[B=U = E = L = 0] || !(l = C(p, A[Math.random() * A.length | 0]))) {
+        if (!(A = h(p))[U = E = L = 0] || !(l = C(p, A[Math.random() * A.length | 0]))) {
             for (x = 0; x < u; x++)
-                for (y = 0; y < v; y++) g(Z = s(x + 1, y + 1)) - 1 || (J = h(D = Z, 2)[0]) && (p = C(J, l = D), Q = x = y = u);
+                for (y = 0; y < v; y++) g(Z = s(x + 1, y + 1)) - 1 || !(J = h(D = Z, 2)[0]) || (p = C(J, l = D), Q = x = y = u);
             Q--
         }
         S(o(C(p, p = l), 2), 2)
@@ -34,30 +27,29 @@ u = "onkeydown";
 d[u] = e => k[e.keyCode] = 1;
 u = "onkeyup";
 d[u] = e => k[e.keyCode] = 0;
-(Y = _ => {
+(k = _ => {
     g(I) - 3 || (S(I, 2), E++);
     d = o(t(L), 396 / (-U + (U = _)));
     T = 5e-2;
     i = 36;
     k[++i] && (L += -T);
-    k[++i] && ++B;
+    k[++i] && g(n = C(I, d)) && (I = n);
     k[++i] && (L += T);
-    k[++i] && --B;
-    B /= 1.6;
-    g(n = C(I, o(d,1/B))) && (I = n);
-    I.x + I.y < 62 || E && E % 5 || f();
+    d = o(d, -1);
+    k[++i] && g(n = C(I, d)) && (I = n);
+    I.x + I.y < 62 || !E || E % 5 || f();
     c.fillStyle = "#24f";
     c.fillRect(0, 0, u = 400, u);
     c.fillStyle = "#333";
     c.fillRect(0, h = 200, u, h);
     v = 1e4;
     for (x = 0; x < u; x++)
-        for (y = 0; y < v; y++) w = C(I, o(t(L + (z = (x - u / 2) / u)), 150 / y * Math.cos(z))), g(w) && g(w) ^ 3 || (c.fillStyle = ["#999", "#bbb", "#ddd"][(w.x + w.y) % 3 | 0], c.fillStyle = g(w) - 3 || "#0f0", c.fillRect(x, h - u / y / 1e-2 / 2, 2, u / y / 1e-2), y = v, x++);
+        for (y = 0; y < v; y++) w = C(I, o(t(L + (z = (x - u / 2) / u)), 150 / y * Math.cos(z))), g(w) && g(w) ^ 3 || (c.fillStyle = ["#999", "#bbb", "#ddd"][(w.x % 3 + w.y) % 3 | 0], c.fillRect(x, h - u / y / 1e-2 / 2, 2, u / y / 1e-2), y = v, x++);
     u = v = 33;
     for (x = 0; x < u; x++)
         for (y = 0; y < v; y++) c.fillStyle = ["#000", 0, "#fff", "#0f0"][M[y][x]], c.fillRect(x * 3, y * 3, 3, 3);
     c.fillStyle = "#f00";
     c.fillRect(I.x * 3 - 1, I.y * 3 - 1, 3, 3);
     c.fillRect(93, 93, 3, 3);
-    requestAnimationFrame(Y)
+    requestAnimationFrame(k)
 })()
