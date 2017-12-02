@@ -35,16 +35,14 @@ d[u] = e => k[e.keyCode] = 1;
 u = "onkeyup";
 d[u] = e => k[e.keyCode] = 0;
 (Y = _ => {
-    g(I) - 3 || (S(I, 2), E++);
-    d = o(t(L), 396 / (-U + (U = _)));
-    T = 5e-2;
+    g(I) - 3 || S(I, 2) | E++;
     i = 36;
-    k[++i] && (L += -T);
-    k[++i] && ++B;
-    k[++i] && (L += T);
-    k[++i] && --B;
+    k[++i] && L--;
+    k[++i] && B++;
+    k[++i] && L++;
+    k[++i] && B--;
     B /= 1.6;
-    g(n = C(I, o(d,1/B))) && (I = n);
+    g(n = C(I, o(t(L/20),396 / (-U + (U = _))*1/B))) && (I = n);
     I.x + I.y < 62 || E && E % 5 || f();
     c.fillStyle = "#24f";
     c.fillRect(0, 0, u = 400, u);
@@ -52,7 +50,7 @@ d[u] = e => k[e.keyCode] = 0;
     c.fillRect(0, h = 200, u, h);
     v = 1e4;
     for (x = 0; x < u; x++)
-        for (y = 0; y < v; y++) w = C(I, o(t(L + (z = (x - u / 2) / u)), 150 / y * Math.cos(z))), g(w) && g(w) ^ 3 || (c.fillStyle = ["#999", "#bbb", "#ddd"][(w.x + w.y) % 3 | 0], c.fillStyle = g(w) - 3 || "#0f0", c.fillRect(x, h - u / y / 1e-2 / 2, 2, u / y / 1e-2), y = v, x++);
+        for (y = 0; y < v; y++) w = C(I, o(t(L/20 + (z = (x - u / 2) / u)), 150 / y * Math.cos(z))), g(w) && g(w) ^ 3 || (c.fillStyle = ["#999", "#bbb", "#ddd"][(w.x + w.y) % 3 | 0], c.fillStyle = g(w) - 3 || "#0f0", c.fillRect(x, h - u / y / .01 / 2, 1, u / y / .01),c.fillStyle="#111",c.fillRect(x, h - u / y / .01 / 2,1,2e3/y),c.fillRect(x, h + u / y / .01 / 2-2e3/y,1,2e3/y), y = v);
     u = v = 33;
     for (x = 0; x < u; x++)
         for (y = 0; y < v; y++) c.fillStyle = ["#000", 0, "#fff", "#0f0"][M[y][x]], c.fillRect(x * 3, y * 3, 3, 3);
