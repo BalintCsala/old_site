@@ -1,6 +1,9 @@
 body {
     background-color: #222229;
     padding: 10px;
+    font-size: 30px;
+    color: white;
+    font-family: "Trebuchet MS", sans-serif;
 }
 
 canvas {
@@ -14,8 +17,33 @@ input[type=button] {
     font-size: 30px;
     border: 0px;
     outline: none;
+    margin: 0.1em;
+}
+
+input[type=checkbox] {
+    font-size: 30px;
+    position: relative;
+    top: 0.2em;
+    width: 0.8em;
+    height: 0.8em;
+    outline: none;
 }
 
 input[type=button]:active {
     background-color: #55555f;
+}
+
+.container {
+    padding: 0% 10%;
+    margin: auto;
+}
+
+.input {
+    vertical-align: top;
+    padding: 1em;
+    text-align: right;
+}
+
+.output {
+    text-align: left;
 }

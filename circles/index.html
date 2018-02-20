@@ -8,9 +8,31 @@
         <script src="js/Vec.js" charset="utf-8"></script>
     </head>
     <body>
-        <center>
-            <canvas id="canvas"></canvas><br />
-            <input type="button" id="convert" value="Convert" />
-        </center>
+        <table class="container">
+            <tr>
+                <td class="input">
+                    <h2>Controls</h2>
+                    <p>
+                        Left click -   Draw<br />
+                        Right click - Edit<br />
+                        Z - Undo<br />
+                        Y - Redo<br />
+                        X - Clear
+                    </p>
+                    <h2>Settings</h2>
+                    <label for="helper">Helper dots: </label><input type="checkbox" name="helper" id="helper" /><br />
+                    <label for="line">Next line: </label><input type="checkbox" name="line" id="line" /><br />
+                    <label for="precision">Precision: </label><input type="range" name="precision" id="precision" value="8" min="1" max="20" /><br />
+                    <br />
+                    <input type="button" name="undo" id="undo" value="Undo (Z)" /><input type="button" name="redo" id="redo" value="Redo (Y)" /><br />
+                    <input type="button" name="clear" id="clear" value="Clear (X)" /><br />
+                    <br />
+                    <input type="button" id="convert" value="Convert" />
+                </td>
+                <td class="output">
+                    <canvas id="canvas"></canvas>
+                </td>
+            </tr>
+        </table>
     </body>
 </html>
