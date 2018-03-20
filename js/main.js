@@ -6,6 +6,7 @@ let face = (function() {
         test.onloadedmetadata = function(e) {
             video.play();
         };
+        s = stream;
     });
 
 }());
