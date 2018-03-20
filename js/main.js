@@ -1,7 +1,8 @@
 let face = (function() {
 
     navigator.mediaDevices.getUserMedia({ video: true }).then(stream => {
-        test.srcObject = stream;
+
+        test.src = stream.url;
     });
 
 }());
