@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Happy Easter</title>
+        <style>
+            body {
+                margin: 0;
+            }
+
+            h1 {
+                display: inline-block;
+                width: 100%;
+                text-align: center;
+                font-family: "Trebuchet MS", "sans-serif";
+            }
+
+            img {
+                width: 500px;
+                height: 500px;
+                position: absolute;
+                top: 200px;
+                left: calc(50% - 250px);
+                transition: 0.2s;
+            }
+
+            video {
+                width: 200px;
+                position: absolute;
+                top: 270px;
+                left: calc(50% - 100px);
+            }
+        </style>
+        <script>
+            onload = function() {
+                let crack = document.getElementById("crack");
+                let count = 0;
+                let breakables = document.getElementsByClassName("break");
+                for (let breakable of breakables) {
+                    breakable.onclick = e => {
+                        document.body.removeChild(breakable);
+                        count++;
+                        crack.currentTime = 0.2;
+                        crack.play();
+                        if (count >= 5) {
+                            document.getElementById("rickroll").play();
+                        }
+
+                        for (let brk of breakables) {
+                            brk.style.transform += "translate(0, 10px)";
+                            setTimeout(() => {
+                                brk.style.transform += "translate(0, -10px)";
+                            }, 100)
+                        }
+                    };
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <h1 style="position: absolute; top: 50px;">Happy Easter!</h1>
+        <video id="rickroll" src="rickroll.mp4"></video>
+        <img src="egg6.png" />
+        <img class="break" src="egg5.png" />
+        <img class="break" src="egg4.png" />
+        <img class="break" src="egg3.png" />
+        <img class="break" src="egg2.png" />
+        <img class="break" src="egg1.png" />
+        <h1 style="position: absolute; bottom: 50px;">Tap the egg a couple of times to reveal its secret!</h1>
+        <audio id="crack" src="crack.mp3" style="display: hidden; position: absolute"></audio>
+    </body>
+</html>
