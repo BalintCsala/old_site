@@ -1,0 +1,108 @@
+<html>
+	<head>
+		<script src="main.js" defer="defer"></script>
+		<style>
+			canvas {
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+			
+			.controls {
+				position: absolute;
+				padding: 0.5em;
+				padding-top: 0;
+				left: 10px;
+				top: 10px;
+				background-color: rgba(255, 255, 255, 0.3);
+				color: white;
+				opacity: 0.3;
+			}
+			
+			.controls:hover {
+				opacity: 1;
+			}
+			
+			.range {
+				position: relative;
+				top: 0.5em;
+			}
+			
+			.coord {
+				width: 3em;
+			}
+			
+			.code {
+				width: 50em;
+				position: absolute;
+				top: 10px;
+				right: 10px;
+				background-color: rgba(255, 255, 255, 0.3);
+				opacity: 0.3;
+				padding: 0.5em;
+				color: white;
+				font-family: monospace;
+				max-height: 20em;
+				overflow-y: auto;
+				box-sizing: border-box;
+			}
+			
+			.code-header {
+				color: rgb(150, 150, 150);
+			}
+			
+			.code-base {
+				margin-left: 2em;
+				min-height: 4em;
+				width: 46em;
+			}
+			
+			.code:hover {
+				opacity: 1;
+			}
+			
+			.run {
+				width: 0; 
+				height: 0; 
+				border-top: 10px solid transparent;
+				border-bottom: 10px solid transparent;
+				
+				border-left: 15px solid green;
+				position: absolute;
+				top: 5px;
+				right: 5px;
+			}
+			
+			.run:hover {
+				border-left: 15px solid lightgreen;
+			}
+			
+			.run:active {
+				border-left: 15px solid darkgreen;
+			}
+			
+			.overlay {
+				z-index: 3;
+				pointer-events: ;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas"></canvas>
+		<div class="code overlay">
+			<span class="code-header">float map(vec3 p) {</span><br />
+			<div contenteditable="true" class="code-base" id="code-base">
+				return fSphere(p, 1.0);
+			</div>
+			<span class="code-header">}</span><br />
+			<div id="error">
+			</div>
+			<div class="run" id="run"></div>
+		</div>
+		<div class="controls overlay">
+			floor height: <input class="range" class="range" id="floor_height" type="range" min="-20" max="20" step="0.01" /><br />
+			<br />
+			sun: X: <input class="coord" type="number" id="sunX" value="2"/> Y: <input class="coord" type="number" id="sunY" value="-3" /> Z: <input class="coord" type="number" id="sunZ" value="1" /><br />
+		</div>
+	</body>
+</html>
