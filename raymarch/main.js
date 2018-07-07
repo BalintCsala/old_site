@@ -64,7 +64,6 @@
                         let img = new Image();
                         img.src = e.target.result;
                         img.onload = e => {
-                            console.log(gl.TEXTURE1);
                             gl.activeTexture(gl.TEXTURE1 + +fileLoader.dataset.currentId);
                             gl.bindTexture(gl.TEXTURE_2D, texture);
                             gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, img);
@@ -230,22 +229,21 @@
     }
 
     function update(t) {
-        if (keys[87]) {
-            cameraPosition[2] += Math.cos(cameraRotation[1]) * CAMERA_SPEED;
-            cameraPosition[0] += Math.sin(cameraRotation[1]) * CAMERA_SPEED;
-        }
-        if (keys[83]) {
-            cameraPosition[2] -= Math.cos(cameraRotation[1]) * CAMERA_SPEED;
-            cameraPosition[0] -= Math.sin(cameraRotation[1]) * CAMERA_SPEED;
-        }
-        if (keys[65]) {
-            cameraPosition[2] -= Math.cos(cameraRotation[1] + Math.PI / 2) * CAMERA_SPEED;
-            cameraPosition[0] -= Math.sin(cameraRotation[1] + Math.PI / 2) * CAMERA_SPEED;
-        }
-        if (keys[68]) {
-            cameraPosition[2] += Math.cos(cameraRotation[1] + Math.PI / 2) * CAMERA_SPEED;
-            cameraPosition[0] += Math.sin(cameraRotation[1] + Math.PI / 2) * CAMERA_SPEED;
-        }
+        if (keys[87] || keys[90] || keys[38]) { // Forward
+             cameraPosition[2] += Math.cos(cameraRotation[1]) * CAMERA_SPEED;
+             cameraPosition[0] += Math.sin(cameraRotation[1]) * CAMERA_SPEED;
+         }	         }
+-        if (keys[83]) {	+        if (keys[83] || keys[40]) { // Backward
+             cameraPosition[2] -= Math.cos(cameraRotation[1]) * CAMERA_SPEED;
+             cameraPosition[0] -= Math.sin(cameraRotation[1]) * CAMERA_SPEED;
+         }	         }
+-        if (keys[65]) {	+        if (keys[65] || keys[81] || keys[37]) { // Left
+             cameraPosition[2] -= Math.cos(cameraRotation[1] + Math.PI / 2) * CAMERA_SPEED;
+             cameraPosition[0] -= Math.sin(cameraRotation[1] + Math.PI / 2) * CAMERA_SPEED;
+         }	         }
+-        if (keys[68]) {	+        if (keys[68] || keys[39]) { // Right
+             cameraPosition[2] += Math.cos(cameraRotation[1] + Math.PI / 2) * CAMERA_SPEED;
+             cameraPosition[0] += Math.sin(cameraRotation[1] + Math.PI / 2) * CAMERA_SPEED;
         if (keys[32]) {
             cameraPosition[1] += CAMERA_SPEED;
         }
