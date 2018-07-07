@@ -15,6 +15,8 @@ uniform sampler2D tex1;
 uniform sampler2D tex2;
 uniform sampler2D tex3;
 
+uniform bool floorEnabled;
+
 const float EPSILON = 0.0001;
 const float STEPS = 500.0;
 const float MAX_DIST = 100.0;
@@ -535,10 +537,10 @@ float fOpPipe(float a, float b, float r) {
 	return length(vec2(a, b)) - r;
 }
 
+vec3 normal(vec3 p);
 
-float map(vec3 p) {
-	[MAP]
-}
+[MAP]
+
 
 vec3 normal(vec3 p) {
 	vec2 e = vec2(EPSILON, 0);
@@ -570,16 +572,23 @@ void main() {
 	float dist = 0.0;
 	for (float i = 0.0; i < STEPS; i++) {
 		vec3 p = ro + rd * dist;
-		float d = min(map(p), abs(p.y - floorHeight));
-		if (abs(p.y - floorHeight) < EPSILON) {
+		float d = map(p);
+        if (floorEnabled) {
+            d = min(d, abs(p.y - floorHeight));
+        }
+        
+		if (floorEnabled && abs(p.y - floorHeight) < EPSILON) {
+            float d = map(p);
+            float v1 = smoothstep(0.02, 0.025, abs(mod(d + 0.5, 1.0) - 0.5));
+            float v2 = smoothstep(0.005, 0.007, abs(mod(d + 0.05, 0.1) - 0.05));
+        
 			color = texture(heatmap, vec2(map(p) / 25.0, 0));
+            color.rgb *= vec3(v1 * v2);
 			break;
 		}
-		if (d < EPSILON) {
-			vec3 n = normal(p);
-			float spec = blinnPhongSpecular(-normalize(sun), -rd, n, 10.0);
-			float diffuse = (dot(n, -normalize(sun)) + 1.0) / 2.0;
-			color.rgb = vec3(max(spec / 50.0 + diffuse, 0.1));
+		if (abs(d) < EPSILON) {
+			
+			color.rgb = getColor(p, rd);
 			break;
 		}
 		if (dist > MAX_DIST) {
