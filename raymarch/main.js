@@ -234,15 +234,15 @@
                 cameraPosition[2] += Math.cos(cameraRotation[1]) * CAMERA_SPEED;
                 cameraPosition[0] += Math.sin(cameraRotation[1]) * CAMERA_SPEED;
             }
-    -       if (keys[83] || keys[40]) { // Backward
+            if (keys[83] || keys[40]) { // Backward
                 cameraPosition[2] -= Math.cos(cameraRotation[1]) * CAMERA_SPEED;
                 cameraPosition[0] -= Math.sin(cameraRotation[1]) * CAMERA_SPEED;
             }
-    -       if (keys[65] || keys[81] || keys[37]) { // Left
+            if (keys[65] || keys[81] || keys[37]) { // Left
                 cameraPosition[2] -= Math.cos(cameraRotation[1] + Math.PI / 2) * CAMERA_SPEED;
                 cameraPosition[0] -= Math.sin(cameraRotation[1] + Math.PI / 2) * CAMERA_SPEED;
             }
-    -       if (keys[68] || keys[39]) { // Right
+            if (keys[68] || keys[39]) { // Right
                  cameraPosition[2] += Math.cos(cameraRotation[1] + Math.PI / 2) * CAMERA_SPEED;
                  cameraPosition[0] += Math.sin(cameraRotation[1] + Math.PI / 2) * CAMERA_SPEED;
             }
