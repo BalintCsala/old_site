@@ -1,0 +1,65 @@
+body {
+    text-align: center;
+    font-family: "Trebuchet MS", sans-serif;
+}
+
+.column {
+    width: 800px;
+    margin: auto;
+}
+
+.header tr td {
+    width: 33.3%;
+}
+
+.arrow {
+    width: 50px;
+    height: 50px;
+    background-image: url("https://images.homedepot-static.com/productImages/a810e8c9-9c40-44f9-a01c-eeaa5ac9c88d/svn/stencil-ease-commercial-stencils-cc0081a-64_300.jpg");
+    background-size: cover;
+    display: inline-block;
+}
+
+.left {
+    transform: scaleX(-1);
+}
+
+.container {
+    width: 100%;
+    margin: 0;
+    padding: 0.5em;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.dweet {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: green;
+    border: 2px solid grey;
+    margin: 3px;
+    position: absolute;
+}
+
+.deleted {
+    background-color: lightgray;
+}
+
+.current {
+    background-color: red;
+}
+
+.dweet-description {
+    width: 20em;
+    height: 3em;
+    background-color: lightgray;
+    border: 2px solid gray;
+    position: relative;
+    bottom: 3.5em;
+    display: none;
+}
+
+.dweet:hover > .dweet-description {
+    display: block;
+}
