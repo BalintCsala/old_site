@@ -20,8 +20,6 @@ const float EPSILON = 0.0001;
 const float STEPS = 500.0;
 const float MAX_DIST = 100.0;
 
-out vec4 color;
-
 const int iterations = 160;
 const float dist_eps = .001;
 const float ray_max = 200.0;
@@ -566,7 +564,7 @@ void main() {
 	rd.yz *= rot(cameraRotation.x);
 	rd.xz *= rot(cameraRotation.y);
 	
-	color = vec4(0, 0, 0, 1);
+	vec4 color = vec4(0, 0, 0, 1);
 	color.rgb = (skyColor(rd, -normalize(sun)) + vec3(0.5)) * vec3(0, 0.7, 1);
 	float dist = 0.0;
 	for (float i = 0.0; i < STEPS; i++) {
@@ -581,7 +579,7 @@ void main() {
             float v1 = smoothstep(0.02, 0.025, abs(mod(d + 0.5, 1.0) - 0.5));
             float v2 = smoothstep(0.005, 0.007, abs(mod(d + 0.05, 0.1) - 0.05));
         
-			color = texture(heatmap, vec2(map(p) / 25.0, 0));
+			color = texture2d(heatmap, vec2(map(p) / 25.0, 0));
             color.rgb *= vec3(v1 * v2);
 			break;
 		}
@@ -595,5 +593,7 @@ void main() {
 		}
 		dist += d;
 	}
+	
+	gl_FragColor = color;
 	
 }
