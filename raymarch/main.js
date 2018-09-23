@@ -81,7 +81,7 @@
             c.height = innerHeight;
         };
 
-        gl = c.getContext("webgl2");
+        gl = c.getContext("webgl");
 
 
         c.onmousedown = e => {
