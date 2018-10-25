@@ -84,7 +84,7 @@ var h = -1;
 function toggle(i) {
 	h = i;
 	if (h == 1) {
-		document.getElementById("play").src = "images/play_ON.png";
+		document.getElementById("play").src = "images/Play_ON.png";
 		document.getElementById("stop").src = "images/stop.png";
 	} else {
 		document.getElementById("play").src = "images/play.png";
@@ -103,16 +103,16 @@ function changeImage(i) {
 	document.getElementById("kepek").src = path + current + ".jpg";
 	
 	if (i == -1) {
-		document.getElementById("left").src = "images/arrow_ON.png";
+		document.getElementById("left").src = "images/Arrow_ON.png";
 	} else {
-		document.getElementById("right").src = "images/arrow_ON.png";
+		document.getElementById("right").src = "images/Arrow_ON.png";
 	}
 	window.setTimeout(setBack, 100);
 }
 
 function setBack() {
-	document.getElementById("left").src = "images/arrow.png";
-	document.getElementById("right").src = "images/arrow.png";
+	document.getElementById("left").src = "images/Arrow.png";
+	document.getElementById("right").src = "images/Arrow.png";
 }
 
 var length = 13;
