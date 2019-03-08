@@ -1,0 +1,191 @@
+@font-face {
+    font-family: "Lovely Home";
+    src: url("../fonts/Lovely Home.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Billion Stars";
+    src: url("../fonts/BillionStars_PersonalUse.ttf") format("truetype");
+}
+
+.logo {
+    width: 100%;
+    max-width: 30em;
+}
+
+.fancy-title {
+    font-family: "Lovely Home";
+    font-weight: normal;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+@media screen and (orientation: portrait) {
+    html {
+        font-size: 2em;
+    }
+}
+
+:root {
+    --gold: #cd9200;
+}
+
+body {
+    background-image: url("../imgs/background.png");
+    margin: 0;
+    color: white;
+    font-family: "Trebuchet MS", sans-serif;
+}
+
+
+h2 {
+    margin-top: 1em;
+    margin-bottom: 0em;
+}
+
+.top-design {
+	margin: auto;
+	width: 60%;
+	display: block;
+	height: 4em;
+}
+
+.header {
+    width: 80%;
+	margin: auto;
+	margin-top: 1em;
+	margin-bottom: 1em;
+    text-align: center;
+	background-color: #111111;
+	padding: 0.5em;
+	border: 3px solid var(--gold);
+}
+
+.title {
+    font-family: "Lovely Home";
+    font-weight: lighter;
+    font-size: 3em;
+}
+
+.divider {
+    background-image: url("../imgs/goldtexture.png");
+    height: 2em;
+}
+
+.main-background {
+	width: 100%;
+}
+
+.main {
+    margin: auto;
+    padding: 0.5em;
+    max-width: 65em;
+}
+
+.price-container {
+    display: grid;
+    grid-gap: 1em;
+    grid-template-columns: repeat(auto-fill, minmax(20em, 20.5em));
+    justify-content: center;
+}
+
+.box-container {
+    object-fit: fill;
+}
+
+.content {
+    border: 3px solid var(--gold);
+    height: 13em;
+    text-align: center;
+    padding: 0.7em;
+    box-sizing: border-box;
+    font-size: 1.5em;
+	background-color: #111111;
+}
+
+.ornamental {
+    width: 100%;
+    height: 2em;
+}
+
+.text {
+	display: inline-block;
+	margin: auto;
+    border-top: 3px solid #494949;
+    border-bottom: 3px solid #494949;
+    margin-top: 1em;
+}
+
+.text-main {
+    max-width: 60rem;
+    margin: auto;
+    font-size: 1.5em;
+    padding: 1em;
+    background-color: #111111;
+	border: 3px solid var(--gold);
+}
+
+.images {
+    max-width: 60em;
+    display: grid;
+    grid-gap: 0.5em;
+    margin: auto;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-flow: dense;
+    grid-auto-rows: 15em;
+    margin-bottom: 1em;
+	background-image: url("../imgs/background.png");
+	padding-left: 2em;
+	padding-right: 2em;
+}
+
+.item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gold-background {
+	width: calc(100% - 4em);
+	margin: auto;
+	background-image: url("../imgs/goldbackground.png");
+    background-size: cover;
+    max-width: 100em;
+}
+
+.calculator-container {
+	display: inline-block;
+}
+
+.calculator {
+    margin: auto;
+    display: inline-block;
+    position: relative;
+    border: 1px solid var(--gold);
+    padding: 1em;
+    margin-bottom: 2em;
+}
+
+.calculator input, .calculator select {
+    font-size: 1.5em;
+    margin: 0.1em;
+}
+.calculator input {
+    width: 8em;
+}
+
+.calculator input[type="button"] {
+    margin: auto;
+}
+
+.result {
+    width: 100%;
+}
+
+.footer {
+    width: 100%;
+    background-color: black;
+	padding: 2em;
+}

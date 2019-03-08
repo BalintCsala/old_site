@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Arany, ezüst, régiség felvásárlás</title>
+        <link rel="stylesheet" href="css/master.css">
+    </head>
+    <body>
+		<img src="imgs/ornamental.png" class="top-design" /> 
+        <div class="header">
+            <img src="imgs/logo.png" class="logo" />
+			
+        </div>
+        <div class="divider"></div>
+        
+		<div class="main-background">
+			<div class="main">
+				<div class="price-container">
+					<div class="box-container">
+						<div class="content">
+							<h3 class="fancy-title">Arany</h3>
+							<span>Tört-, fazonarany</span>
+						</div>
+						<img class="ornamental" src="imgs/ornamental.png" />
+					</div>
+					<div class="box-container">
+						<div class="content">
+							<h3 class="fancy-title">Ezüst</h3>
+							<span>1200Ft/g</span>
+							<span>Örömmel átvesszük</span>
+						</div>
+						<img class="ornamental" src="imgs/ornamental.png" />
+					</div>
+					<div class="box-container">
+						<div class="content">
+							<h3 class="fancy-title">Régiség</h3>
+							<span>1200Ft/g</span>
+							<span>Örömmel átvesszük</span>
+						</div>
+						<img class="ornamental" src="imgs/ornamental.png" />
+					</div>
+					<div class="box-container">
+						<div class="content">
+							Régi családi Ékszerei vannak amivel nem tud mit kezdeni? Régről megmaradt ékszereit már nem meri az utcán hordani? Nalunk jó helyen jár!Ingyenes értékbecslés után a galériánk azonnal készpénzben ki is fizeti önnek!
+						</div>
+						<img class="ornamental" src="imgs/ornamental.png" />
+					</div>
+					<div class="box-container">
+						<div class="content">
+							Galériánk magas áron keres bútorokat festményeket régi porcelánokat régi Bronz szobrokat numizmatikai gyűjteményeket régi óra ékszer gyűjteményeket Ezüst dísztárgyakat vitrin tárgyakatRégi bizsu kat régi ezüst ékszereket
+						</div>
+						<img class="ornamental" src="imgs/ornamental.png" />
+					</div>
+					<div class="box-container">
+						<div class="content">
+							Helyszín:
+						</div>
+						<img class="ornamental" src="imgs/ornamental.png" />
+					</div>
+				</div>
+			</div>
+			</div>
+			<br />
+			<br />
+			<br />
+			<div class="gold-background">
+				<div class="images">
+					<div class="item" style="grid-area: 1 / 1 / span 3 / span 1"><img src="imgs/presentation/1.jpg" /></div>
+					<div class="item"><img src="imgs/presentation/10.jpg" /></div>
+					<div class="item" style="grid-area: 4 / 3 / span 2 / span 1"><img src="imgs/presentation/11.jpg" /></div>
+					<div class="item"><img src="imgs/presentation/9.jpg" /></div>
+					<div class="item"><img src="imgs/presentation/2.jpg" /></div>
+					<div class="item"><img src="imgs/presentation/3.jpg" /></div>
+					<div class="item"><img src="imgs/presentation/4.jpg" /></div>
+					<div class="item"><img src="imgs/presentation/5.jpg" /></div>
+					<div class="item"><img src="imgs/presentation/6.jpg" /></div>
+					<div class="item"><img src="imgs/presentation/7.jpg" /></div>
+					<div class="item"><img src="imgs/presentation/8.jpg" /></div>
+					<div class="item"><img src="imgs/presentation/12.jpg" /></div>
+					<div class="item"><img src="imgs/presentation/13.jpg" /></div>
+					<div class="item"><img src="imgs/presentation/14.jpg" /></div>
+					<div class="item"><img src="imgs/presentation/15.jpg" /></div>
+					<div class="item" style="grid-area: 1 / 4 / span 2 / span 1"><img src="imgs/presentation/17.jpg" /></div>
+				</div>
+			</div>
+			<div class="text-main">
+                <p>
+                    Vállalkozásunk célja hogy a lehető legmagasabb és legjobb párom mindent egy helyen tudjon készpénzért váltani és a legmagasabb árakat tudjuk kínálni ügyfeleinknek
+                </p>
+                <p>
+                    Galériánk a régiség központ bölcsőjében helyezkedik el ahol ahol nagy tiszteletnek és becsületnek örvend amire cégünk a legjobban vigyázz
+                </p>
+                <p>
+                    Felvásárlás a galériánkban minden esetben teljes diszkrécióban történik az ügyfeleink biztonsága érdekében Egyszerre csak egy ügyfelünk tartózkodhat nálunk
+                </p>
+                <p>
+                    A borostyán és korall ékszereket szinte aranyáron vásároljuk.
+                </p>
+				<center>
+					<div class="calculator-container">
+						<center>
+							<h2>Érték számoló</h2>
+						</center><br />
+						<div class="calculator">
+							<input type="number" id="amount" placeholder="Mennyiség (g)" />g<br />
+							<select id="type">
+								<option value="gold">Arany</option>
+								<option value="silver">Ezüst</option>
+							</select><br />
+							<input type="button" id="calculate" value="Számolás" /><br />
+							<span><input type="number" readonly class="result" id="result">Ft</span>
+							
+							<script>
+								const PRICE_PER_G = {
+									"gold": 11500,
+									"silver": 130
+								};
+								document.getElementById("calculate").onclick = function() {
+									amount = document.getElementById("amount").value;
+									price = PRICE_PER_G[document.getElementById("type").value];
+									document.getElementById("result").value = amount * price;
+								};
+							</script>
+						</div>
+					</div>
+				</div>
+				<img src="imgs/ornamental.png" class="top-design" /> 
+				<br />
+        </div>
+		<div class="footer">
+			<center>
+				<span class="disclaimer">Az árváltoztatás jogát fenntartjuk!</span><br />
+				<span class="copyright">&copy; webcim.hu - 2019</span>
+			</center>
+		</div>
+    </body>
+</html>
