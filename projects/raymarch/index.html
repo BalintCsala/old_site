@@ -1,0 +1,169 @@
+<html>
+	<head>
+		<script src="main.js" defer="defer"></script>
+		<style>
+			body, textarea {
+				font-family: monospace;
+				font-size: 16px;
+				text-shadow:
+					-1px -1px 0 #000,  
+					1px -1px 0 #000,
+					-1px 1px 0 #000,
+ 					1px 1px 0 #000;
+			}
+			
+			body {
+				overflow: hidden;
+			}
+		
+			canvas {
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+			
+			.controls {
+				padding: 0.5em;
+				padding-top: 0;
+				left: 10px;
+				top: 10px;
+				color: white;
+			}
+			
+			.range {
+				position: relative;
+				top: 0.5em;
+				width: 400px;
+			}
+			
+			.coord {
+				width: 3em;
+				margin-top: 0.1em;
+			}
+			
+			.code {
+				width: 50em;
+				top: 10px;
+				right: 10px;
+				padding: 0.5em;
+				color: white;
+				font-family: monospace;
+				overflow-y: auto;
+				box-sizing: border-box;
+			}
+			
+			.code-header {
+				color: lightgrey;
+			}
+			
+			.code-base {
+				margin-left: 2em;
+				height: 30em;
+				width: 46em;
+				color: white;
+				background-color: transparent;
+				resize: none;
+			}
+			
+			.run {
+				width: 0; 
+				height: 0; 
+				border-top: 10px solid transparent;
+				border-bottom: 10px solid transparent;
+				
+				border-left: 15px solid green;
+				position: fixed;
+				top: 13px;
+				right: 23px;
+			}
+			
+			.run:hover {
+				border-left: 15px solid lightgreen;
+			}
+			
+			.run:active {
+				border-left: 15px solid darkgreen;
+			}
+			
+			.overlay {
+				z-index: 3;
+				background-color: rgba(255, 255, 255, 0.4);
+				position: absolute;
+				opacity: 0.3;
+			}
+			
+			.overlay:hover {
+				opacity: 1;
+			}
+			
+			.textures {
+				width: calc(100% - 20px);
+				left: 10px;
+				bottom: 10px;
+				height: 20px;
+				color: white;
+				transition-duration: 0.5s;
+				overflow: hidden;
+				background-color: rgba(255, 255, 255, 0.4);
+				position: absolute;
+			}
+			
+			.textures:hover {
+				height: calc(210px + 3em);
+			}
+			
+			.texture {
+				width: calc(100% / 4 - 12.5px);
+				height: 200px;
+				float: left;
+				margin-left: 10px;
+				background-color: black;
+				padding: 0.5em;
+				box-sizing: border-box;
+			}
+			
+			.title {
+				font-size: 20px;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<input type="file" accept="image/*" style="display: none" id="file-loader" />
+		<canvas id="canvas"></canvas>
+		<div class="code overlay">
+			<span class="title">
+				Code
+			</span><br />
+			<textarea class="code-base" id="code-base">float map(vec3 p) {
+    return fSphere(p, 1.0);
+}
+
+vec3 getColor(vec3 p, vec3 rd) {
+    vec3 n = normal(p);
+    float spec = blinnPhongSpecular(-normalize(sun), -rd, n, 10.0);
+    float diffuse = (dot(n, -normalize(sun)) + 1.0) / 2.0;
+    return vec3(1) * max(spec / 50.0 + diffuse, 0.1);
+}</textarea>
+			<div id="error">
+			</div>
+			<div class="run" id="run"></div>
+		</div>
+		<div class="controls overlay">
+			<span class="title">Controls</span><br />
+			enable floor: <input type="checkbox" id="enable-floor" checked="checked"/><br />
+			floor height: <input id="floor_height" class="coord" type="number" step="0.01" value="0"/><br />
+			sun: X: <input class="coord" type="number" id="sun-x" value="2"/> Y: <input class="coord" type="number" id="sun-y" value="-3" /> Z: <input class="coord" type="number" id="sun-z" value="1" /><br />
+		</div>
+		<div class="textures">
+			<span class="title">
+				Textures
+			</span><br />
+			<br />
+			<div class="texture tex0">tex0</div>
+			<div class="texture tex1">tex1</div>
+			<div class="texture tex2">tex2</div>
+			<div class="texture tex3">tex3</div>
+		</div>
+	</body>
+</html>

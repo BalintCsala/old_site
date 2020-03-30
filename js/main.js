@@ -1,27 +1,17 @@
-let face = (function() {
-
-    let output = document.getElementById("output");
-
-    navigator.mediaDevices.getUserMedia({ video: true }).then(stream => {
-        output.srcObject = stream;
-    });
-
-    let c = document.getElementById("canvas");
-    c.width = Math.min(innerWidth, innerHeight);
-    c.height = c.width;
-    let ctx = c.getContext("2d");
-
-    let points = [
-        { x: 0.5, y: 0.3 },
-        { x: 0.2, y: 0.7 },
-        { x: 0.8, y: 0.7 }
-    ];
-
-    (function rendering() {
-        ctx.drawImage(output, (c.width - output.width) / 2, (c.height - output.height) / 2);
-        ctx.beginPath();
-
-        requestAnimationFrame(rendering);
-    })();
-
+(function() {
+    
+    const maxSliderCount = 1;
+    
+    function loadSlider() {
+        let url = new URL(location.href);
+        let id = url.searchParams.get("id");
+        if (id === null)
+            id = Math.floor(Math.random() * maxSliderCount);
+        let script = document.createElement("script");
+        script.src = `js/scripts/${id}.js`;
+        document.head.appendChild(script);
+    }
+    
+    loadSlider();
+    
 }());

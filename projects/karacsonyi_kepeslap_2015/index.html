@@ -1,0 +1,52 @@
+<html>
+	<head>
+		<script src="js/main.js"></script>
+		<script src="js/Snow.js"></script>
+		<script src="js/SnowLayer.js"></script>
+		<script src="js/Vector2.js"></script>
+		<link rel="stylesheet" href="css/style.css">
+		<meta charset="UTF-8">
+	</head>
+	<body onload="main()">
+		<canvas id="canvas">
+		</canvas>
+		<img src="images/led.png" id="fa"></img>
+		<div id="nevjegyek" onmouseover="toggleDiv()" onmouseleave="toggleDiv()">
+			Névjegy
+		</div>
+		<div id="nevjegyek-gordulo">
+			<p>
+				Készítette: <br />
+				&emsp;Csala Bálint (9.b)<br />
+				&emsp;Csala Péter (9.b)<br />
+				&emsp;Hizsnyai Julianna (9.b)<br />
+				<br />
+				Képek:<br />
+				&emsp;Henz Tünde (9.b)<br />
+				&emsp;Tóth Balázs (9.b)<br />
+				&emsp;Nyisztor Virág (10.a)<br />
+				&emsp;Kovács Bence (11.a)<br />
+				<br />
+				További illusztrációk: <br />
+				&emsp;www.rgbstock.com
+			</p>
+		</div>
+		<center>
+			<h1 id="title">
+				A Kempelen Farkas Gimnázium a diákok fotóival kíván kellemes karácsonyi ünnepeket!
+			</h1>
+		</center>
+		<img src="images/angyal2.png" id="angyal"></img>
+		
+		<div id="checkbox-format">
+			<center>
+				<img src="images/Arrow.png" class="arrow" id="left" onclick="changeImage(-1)"></img>
+				<img src="images/play.png" class="checkbox" id="play" width="60px" height="60px" onclick="toggle(1)"></img>
+				<img src="images/stop_ON.png" class="checkbox" id="stop" width="60px" height="60px" onclick="toggle(-1)"></img>
+				<img src="images/Arrow.png" class="arrow" id="right" onclick="changeImage(1)"></img>
+			</center>
+		</div>
+		<img src="images/frame_embossed_metal.png" id="keret"></img>
+		<img src="diavetites/0.jpg" id="kepek"></img>
+	</body>
+</html>
