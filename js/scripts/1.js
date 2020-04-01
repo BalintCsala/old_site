@@ -51,7 +51,7 @@
             }
         });
     
-        document.addEventListener("mouseup", e => {
+        document.addEventListener("mouseup", () => {
             if (holding) {
                 launched = Date.now();
                 holding = false;
@@ -61,8 +61,6 @@
         
         loop();
     }
-    
-    let started = false;
     
     function loop() {
         ctx.clearRect(0, 0, 300, 300);
