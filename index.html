@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>Volume Slider</title>
+        <script src="js/vec.js" charset="utf-8"></script>
         <script src="js/main.js" charset="utf-8" defer="defer"></script>
         <style>
             .container {
@@ -12,9 +13,16 @@
                 padding: 0;
                 position: relative;
             }
+            
+            video {
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
         </style>
     </head>
     <body>
+        <video class="thingy" src="images/video.mp4" style="display: none"></video>
         <div class="container">
         </div>
     </body>
