@@ -70,18 +70,6 @@
             angle = Math.min((end - startedLaunch) / HOLDING_TIME, 1) * (maxAngle - minAngle) + minAngle;
         }
         
-        if (launched) {
-            let totalTime = 2 * velocity * Math.sin(angle) / GRAVITY;
-            if ((Date.now() - launched) / 100 >= totalTime - 0.1) {
-                let dx = velocity * Math.cos(angle) * totalTime;
-                let volume = (dx - MIN_DIST) / (MAX_DIST - MIN_DIST);
-                let video = document.querySelector(".thingy");
-                video.style.display = "block";
-                video.volume = Math.min(Math.max(volume, 0), 1);
-                video.play();
-            }
-        }
-        
         if (imgLoaded) {
             ctx.lineWidth = 3;
             ctx.beginPath();
